@@ -1,13 +1,12 @@
 const file = './carpeta/'
 const path = require('path');
-const fs = require('fs');
-const markdownLinkExtractor = require('markdown-link-extractor');
 const { resolve } = require('path');
+const fs = require('fs');
 
 // Path Evaluation (relative or absolute)
 function evaluatePath(file){
     if(path.isAbsolute(file)===false){
-     return path.resolve(file);
+      return path.resolve(file);
     }
 }
   
@@ -31,11 +30,10 @@ function mdExt(route){
     } else{
         const arrayOfFiles = fs.readdirSync(route);
         arrayOfFiles.forEach(element => {
-          const arrayMd=mdExt(path.join(route, element));
-          
+          mdExt(path.join(route, element));
         })
     }
-    return arrayMdFile
+  return arrayMdFile
 }
   
 module.exports = {
