@@ -43,7 +43,7 @@ function createObjLink(data){
 //MDLinks--> path
 function readFiles(listFiles) {
     // let arrayFiles=[]
-    const arrayFiles= listFiles.forEach((route)=>{
+    const arrayFiles= listFiles.map((route)=>{
         return reader(route)
         .then(data => {
             const dataObj=createObjLink(data)
@@ -52,10 +52,10 @@ function readFiles(listFiles) {
         })
         .catch((error => console.log('soy el error',{error})))
     })
-    console.log(arrayFiles)
+    return Promise.all(arrayFiles)
 }
 
-
+// FUNCIONES CLI
 //validate
 
 function validate(arrayLinks){
@@ -84,9 +84,8 @@ function validate(arrayLinks){
       }
     })
   )
-    return Promise.all(arrayPromise)
+    return (Promise.all(arrayPromise))
 }
-
 
 
 module.exports = {

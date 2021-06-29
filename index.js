@@ -3,18 +3,29 @@ const recursion = require('./recursion.js');
 const allFunctions= require('./functions.js')
 
 
-function mdLinks(path){
+function mdLinks(path,option= {validate:false}){
   const pathAbs= recursion.evaluatePath(path);
   const pathMd= recursion.mdExt(pathAbs);
+  const fileReaderPromise = allFunctions.readFiles(pathMd)
+  return fileReaderPromise
+  .then((arr)=>{
+    const objLinks=arr.flat()
+    return (objLinks)//----> resultado de reader
+  })
+  // return Promise.all([objR])
+  /* .then((arrayLinks)=>{
+    if(option.validate===true){
+      const arrPromise= allFunctions.validate(arrayLinks)
+      console.log(arrPromise)
+    } else{
+      return arrayLinks
+    }
+  }) */
   
-  const fileReader= allFunctions.readFiles(pathMd)
-  console.log('inicio',fileReader)
-  // const arrPromise= validate(arrayLinks)---> TODO: PASAR A MDLINKS
-            // .then((data)=>{
-            //     //arrayFiles.push(validate(data))
-            //     console.log(data)
-            // })
 
 }
 
-mdLinks(file)
+module.exports={mdLinks}
+mdLinks(file).then(values => {
+  return values
+})
