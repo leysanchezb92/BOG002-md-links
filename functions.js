@@ -48,7 +48,6 @@ function readFiles(listFiles) {
         .then(data => {
             const dataObj=createObjLink(data)
            return dataObj
-
         })
         .catch((error => console.log('soy el error',{error})))
     })
@@ -76,12 +75,12 @@ function validate(arrayLinks){
       }
     })
     .catch((error) => {
-        console.error(error)
-      return{
+      error={
         ...element,
         status: 'Error',
         statusText: 'FAIL',
       }
+      return error
     })
   )
     return (Promise.all(arrayPromise))

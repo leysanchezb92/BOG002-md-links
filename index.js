@@ -10,22 +10,18 @@ function mdLinks(path,option= {validate:false}){
   return fileReaderPromise
   .then((arr)=>{
     const objLinks=arr.flat()
-    return (objLinks)//----> resultado de reader
-  })
-  // return Promise.all([objR])
-  /* .then((arrayLinks)=>{
-    if(option.validate===true){
-      const arrPromise= allFunctions.validate(arrayLinks)
-      console.log(arrPromise)
-    } else{
-      return arrayLinks
+    if(option.validate){
+      allFunctions.validate(objLinks)
+      .then((e)=>{
+        // console.log('Estoy en index',e)
+        return e
+      })
     }
-  }) */
-  
-
+    return (objLinks)
+  })
 }
 
 module.exports={mdLinks}
-mdLinks(file).then(values => {
+mdLinks(file, {validate:true}).then(values => {
   return values
 })
