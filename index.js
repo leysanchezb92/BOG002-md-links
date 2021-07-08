@@ -1,4 +1,4 @@
-const file = './carpeta'
+
 const recursion = require('./recursion.js');
 const allFunctions= require('./functions.js')
 
@@ -19,9 +19,10 @@ function mdLinks(path,option= {validate:false}){
     }
     return (objLinks)
   })
+  .catch((error)=>{
+    console.error('This is not a valid path', error)
+  })
 }
 
 module.exports={mdLinks}
-mdLinks(file, {validate:true}).then(values => {
-  return values
-})
+

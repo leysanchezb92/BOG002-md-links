@@ -1,13 +1,8 @@
-const file = './carpeta'
+
 const fs = require('fs');
 const markdownLinkExtractor = require('markdown-link-extractor');
 const recursion = require('./recursion.js');
 const { default: fetch } = require('node-fetch');
-
-
-// recorrer array de links y evaluar file
-
-
 
 // read file//
 const reader = (route)=>{

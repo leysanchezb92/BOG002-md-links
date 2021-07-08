@@ -1,4 +1,4 @@
-const file = './carpeta/'
+
 const path = require('path');
 const { resolve } = require('path');
 const fs = require('fs');

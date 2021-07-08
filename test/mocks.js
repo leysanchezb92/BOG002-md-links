@@ -1,26 +1,8 @@
-const objectLinks = [
-    {
-        file: './randomPath.md',
-        text: 'youtube',
-        href: 'https://www.youtube.com'
-    },
-    {
-        file: './randomPath.md',
-        text: 'Enlace Roto',
-        href: 'https://www.sensacine.com/404'
-    },
-    {
-        file: './randomPath.md',
-        text: 'Markdown',
-        href: 'https://es.wikipedia.org/wiki/Markdown'
-    },
-    {
-        file: './randomPath.md',
-        text: 'Enlace Roto',
-        href: 'https://www.sensacine.com/404'
-    }
-];
-
+const objectLinks = {
+    link: 'https://css-tricks.com/snippets/css/a-guide-to-flexbox/',
+    text: 'Uso de flexbox en CSS.',
+    file: '/Users/leidysanchez/Documentos/MD-links/BOG002-md-links/carpeta/carpeta2/mock.md'
+}
 const objectLinksValidate = [
     {
         file: './randomPath.md',
